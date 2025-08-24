@@ -1,0 +1,48 @@
+-------------------------------------------------------------------------------
+El programa permite realizar conversiones entre diferentes categorías 
+como longitud, masa, temperatura y divisas.
+El usuario selecciona el tipo de conversión y el valor a convertir.
+El sistema aplica la fórmula correspondiente y muestra el resultado.
+-------------------------------------------------------------------------------
+Inicio
+
+    Mostrar mensaje de bienvenida al usuario
+    Repetir
+        Mostrar menú principal con categorías de conversión:
+            1. Longitud
+            2. Masa
+            3. Temperatura
+            4. Divisas
+            5. Salir
+
+        Leer opción seleccionada por el usuario
+
+        Si opción = Longitud:
+            Mostrar submenú de conversiones (ej. km ↔ millas, m ↔ cm)
+            Leer elección y valor a convertir
+            Realizar operación de conversión
+            Mostrar resultado
+
+        Si opción = Masa:
+            Mostrar submenú de conversiones (ej. kg ↔ libras, g ↔ oz)
+            Leer elección y valor
+            Realizar operación de conversión
+            Mostrar resultado
+
+        Si opción = Temperatura:
+            Mostrar submenú de conversiones (ej. °C ↔ °F, °C ↔ K)
+            Leer elección y valor
+            Realizar operación de conversión
+            Mostrar resultado
+
+        Si opción = Divisas:
+            Mostrar submenú de conversiones (ej. MXN ↔ USD, MXN ↔ EUR)
+            Leer elección y valor
+            Realizar operación de conversión
+            Mostrar resultado
+
+        Si opción = Salir:
+            Mostrar mensaje de despedida
+            Terminar ciclo
+
+    Hasta que el usuario elija "Salir"
