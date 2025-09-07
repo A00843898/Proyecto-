@@ -1,53 +1,69 @@
 import math
 
-print("Bienvenido al programa de Conversiones y Operaciones Básicas")
+# Funciones de conversiones
+def convertir_longitud(metros):
+    centimetros = metros * 100
+    kilometros = metros / 1000
+    return f"{metros} metros son {centimetros} cm y {kilometros} km"
 
-# Mostrar menú principal
-print("\nSelecciona una opción:")
-print("1. Conversión de longitud (metros a cm y km)")
-print("2. Conversión de temperatura (°C a °F)")
-print("3. Operaciones básicas (suma, resta, multiplicación, división)")
-print("4. Potencia (elevar un número)")
-print("5. Salir")
+def convertir_temperatura(celsius):
+    fahrenheit = (celsius * 9/5) + 32
+    return f"{celsius} °C son {fahrenheit} °F"
 
-opcion = int(input("Ingresa el número de la opción: "))
-
-# Opción 1: Longitud
-if opcion == 1:
-    metros = float(input("Ingresa el valor en metros: "))
-    centimetros = metros * 100   # multiplicación
-    kilometros = metros / 1000   # división
-    print(f"{metros} metros equivalen a {centimetros} cm y {kilometros} km")
-
-# Opción 2: Temperatura
-else:
-    if opcion == 2:
-        celsius = float(input("Ingresa la temperatura en °C: "))
-        fahrenheit = (celsius * 9/5) + 32   # multiplicación, división y suma
-        print(f"{celsius} °C equivalen a {fahrenheit} °F")
+# Funciones de operaciones
+def operaciones_basicas(a, b):
+    suma = a + b
+    resta = a - b
+    multiplicacion = a * b
+    if b != 0:
+        division = a / b
     else:
-        # Opción 3: Operaciones básicas
-        if opcion == 3:
-            a = float(input("Ingresa el primer número: "))
-            b = float(input("Ingresa el segundo número: "))
-            suma = a + b
-            resta = a - b
-            multiplicacion = a * b
-            division = a / b
-            print(f"Suma: {a} + {b} = {suma}")
-            print(f"Resta: {a} - {b} = {resta}")
-            print(f"Multiplicación: {a} * {b} = {multiplicacion}")
-            print(f"División: {a} / {b} = {division}")
-        else:
-            # Opción 4: Potencia
-            if opcion == 4:
-                base = float(input("Ingresa la base: "))
-                exponente = float(input("Ingresa el exponente: "))
-                potencia = math.pow(base, exponente)
-                print(f"{base} ^ {exponente} = {potencia}")
-            else:
-                # Opción 5: Salir
-                if opcion == 5:
-                    print("Gracias por usar el programa. ¡Hasta luego!")
-                else:
-                    print("Opción no válida, por favor intenta de nuevo.")
+        division = "No se puede dividir entre 0"
+    return (f"Suma: {suma}\n"
+            f"Resta: {resta}\n"
+            f"Multiplicación: {multiplicacion}\n"
+            f"División: {division}")
+
+def calcular_potencia(base, exponente):
+    resultado = math.pow(base, exponente)
+    return f"{base}^{exponente} = {resultado}"
+
+# Menú principal
+def main():
+    print("Bienvenido al programa de Conversiones y Operaciones Básicas")
+
+    print("\nSelecciona una opción:")
+    print("1. Conversión de longitud (m a cm y km)")
+    print("2. Conversión de temperatura (°C a °F)")
+    print("3. Operaciones básicas (suma, resta, multiplicación, división)")
+    print("4. Potencia (elevar un número)")
+    print("5. Salir") 
+
+    opcion = int(input("Escribe tu opción: "))
+
+    if opcion == 1:
+        metros = float(input("Ingresa los metros: "))
+        print(convertir_longitud(metros))
+
+    elif opcion == 2:
+        celsius = float(input("Ingresa la temperatura en °C: "))
+        print(convertir_temperatura(celsius))
+
+    elif opcion == 3:
+        a = float(input("Primer número: "))
+        b = float(input("Segundo número: "))
+        print(operaciones_basicas(a, b))
+
+    elif opcion == 4:
+        base = float(input("Base: "))
+        exponente = float(input("Exponente: "))
+        print(calcular_potencia(base, exponente))
+
+    elif opcion == 5:
+        print("Gracias por usar el programa. ¡Hasta luego!")
+
+    else:
+        print("Opción no válida.")
+
+# Ejecutar el programa
+main()
