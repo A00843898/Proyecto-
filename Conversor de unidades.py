@@ -1,6 +1,5 @@
 import math
 
-# Funciones de conversiones
 def convertir_longitud(metros):
     conversiones = [("centímetros", metros * 100), ("kilómetros", metros / 1000)]
     print(f"\n{metros} metros equivalen a:")
@@ -28,10 +27,8 @@ def calcular_potencia(base, exponente):
     resultado = math.pow(base, exponente)
     print(f"\n{base}^{exponente} = {resultado}")
 
-# Menú principal con uso de listas y matrices
 def main():
     print("Bienvenido al programa de Conversiones y Operaciones Básicas")
-
     opciones = [
         "Conversión de longitud (m a cm y km)",
         "Conversión de temperatura (°C a °F)",
@@ -40,14 +37,15 @@ def main():
         "Ver historial",
         "Salir"
     ]
-
-    historial = []  # Lista anidada para guardar las operaciones
-
+    historial = []
     opcion = 0
+
     while opcion != 6:
-        print("\nSelecciona una opción:")
+        print("\n==============================")
+        print("Selecciona una opción:")
         for i in range(len(opciones)):
             print(f"{i+1}. {opciones[i]}")
+        print("==============================")
 
         opcion = int(input("Escribe tu opción: "))
 
@@ -84,9 +82,12 @@ def main():
                     print(f"- {registro[0]} → {registro[1]}")
 
         elif opcion == 6:
-            print("Gracias por usar el programa. ¡Hasta luego!")
+            print("\nGracias por usar el programa. ¡Hasta luego!")
 
         else:
-            print("Opción no válida.")
+            print("\nOpción no válida.")
+
+        if opcion != 6:
+            input("\nPresiona Enter para continuar...")
 
 main()
