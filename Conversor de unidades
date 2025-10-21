@@ -4,56 +4,83 @@ como longitud, masa, temperatura y divisas.
 El usuario selecciona el tipo de conversión y el valor a convertir.
 El sistema aplica la fórmula correspondiente y muestra el resultado.
 -------------------------------------------------------------------------------
-import math
+Entradas:
 
-print("Bienvenido al programa de Conversiones y Operaciones Básicas")
+opción (entero)
 
-# Mostrar menú principal
-print("\nSelecciona una opción:")
-print("1. Conversión de longitud (metros a cm y km)")
-print("2. Conversión de temperatura (°C a °F)")
-print("3. Operaciones básicas (suma, resta, multiplicación, división)")
-print("4. Potencia (elevar un número)")
-print("5. Salir")
+metros (real)
 
-opcion = int(input("Ingresa el número de la opción: "))
+celsius (real)
 
-# Opción 1: Longitud
-if opcion == 1:
-    metros = float(input("Ingresa el valor en metros: "))
-    centimetros = metros * 100   # multiplicación
-    kilometros = metros / 1000   # división
-    print(f"{metros} metros equivalen a {centimetros} cm y {kilometros} km")
+a, b (reales)
 
-# Opción 2: Temperatura
-else:
-    if opcion == 2:
-        celsius = float(input("Ingresa la temperatura en °C: "))
-        fahrenheit = (celsius * 9/5) + 32   # multiplicación, división y suma
-        print(f"{celsius} °C equivalen a {fahrenheit} °F")
-    else:
-        # Opción 3: Operaciones básicas
-        if opcion == 3:
-            a = float(input("Ingresa el primer número: "))
-            b = float(input("Ingresa el segundo número: "))
-            suma = a + b
-            resta = a - b
-            multiplicacion = a * b
-            division = a / b
-            print(f"Suma: {a} + {b} = {suma}")
-            print(f"Resta: {a} - {b} = {resta}")
-            print(f"Multiplicación: {a} * {b} = {multiplicacion}")
-            print(f"División: {a} / {b} = {division}")
-        else:
-            # Opción 4: Potencia
-            if opcion == 4:
-                base = float(input("Ingresa la base: "))
-                exponente = float(input("Ingresa el exponente: "))
-                potencia = math.pow(base, exponente)
-                print(f"{base} ^ {exponente} = {potencia}")
-            else:
-                # Opción 5: Salir
-                if opcion == 5:
-                    print("Gracias por usar el programa. ¡Hasta luego!")
-                else:
-                    print("Opción no válida, por favor intenta de nuevo.")
+base, exponente (enteros o reales)
+
+Proceso:
+
+Inicio
+
+Mostrar mensaje "Bienvenido al programa de Conversiones y Operaciones Básicas"
+
+Mostrar menú de opciones:
+ 1. Conversión de longitud
+ 2. Conversión de temperatura
+ 3. Operaciones básicas
+ 4. Potencia
+ 5. Ver historial
+ 6. Salir
+
+Leer opcion
+
+Mientras opcion ≠ 6 hacer:
+ 5.1. Si opcion = 1 entonces
+   Leer metros
+   Calcular centimetros = metros * 100
+   Calcular kilometros = metros / 1000
+   Mostrar "Centímetros: ", centimetros
+   Mostrar "Kilómetros: ", kilometros
+   Guardar resultado en historial
+ 5.2. Si opcion = 2 entonces
+   Leer celsius
+   Calcular fahrenheit = (celsius * 9 / 5) + 32
+   Mostrar "Temperatura en Fahrenheit: ", fahrenheit
+   Guardar resultado en historial
+ 5.3. Si opcion = 3 entonces
+   Leer a y b
+   Calcular suma = a + b
+   Calcular resta = a - b
+   Calcular multiplicacion = a * b
+   Si b ≠ 0 entonces
+    Calcular division = a / b
+   Si no
+    Mostrar "No se puede dividir entre 0"
+   FinSi
+   Mostrar todos los resultados
+   Guardar operación en historial
+ 5.4. Si opcion = 4 entonces
+   Leer base y exponente
+   Calcular resultado = base ^ exponente
+   Mostrar "Resultado: ", resultado
+   Guardar operación en historial
+ 5.5. Si opcion = 5 entonces
+   Si historial está vacío entonces
+    Mostrar "No hay operaciones registradas aún"
+   Si no
+    Mostrar todos los elementos del historial
+   FinSi
+ 5.6. Si opcion no está entre 1 y 6 entonces
+   Mostrar "Opción no válida"
+ 5.7. Mostrar menú nuevamente
+ 5.8. Leer nueva opcion
+
+Mostrar "Gracias por usar el programa"
+
+Fin del programa
+
+Salidas:
+
+Resultados de conversiones y operaciones matemáticas
+
+Historial de acciones realizadas
+
+Mensaje de despedida
